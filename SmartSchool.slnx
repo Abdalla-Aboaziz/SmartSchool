@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SmartSchool.Api/SmartSchool.Api.csproj" />
+  <Project Path="SmartSchool.Application/SmartSchool.Application.csproj" />
+  <Project Path="SmartSchool.Data/SmartSchool.Domain.csproj" />
+  <Project Path="SmartSchool.Infrastructure/SmartSchool.Infrastructure.csproj" />
+</Solution>
