@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmartSchool.Infrastructure
+namespace SmartSchool.Application
 {
-    internal class DependancyInjection
+    public class AssemblyReference
     {
     }
 }

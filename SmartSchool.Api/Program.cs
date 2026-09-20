@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using SmartSchool.Infrastructure.Persistence.Data;
+using SmartSchool.Application;
+using SmartSchool.Application.MiddleWares;
+using SmartSchool.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,19 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddInfrastructureDependencies(builder.Configuration)
+                 .AddApplicationDependencies();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-    throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-  
+
     app.MapOpenApi();
 
 
@@ -29,7 +27,7 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/openapi/v1.json", "My API v1");
     });
 }
-
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

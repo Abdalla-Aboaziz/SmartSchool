@@ -1,6 +1,15 @@
-@SmartSchool.Api_HostAddress = http://localhost:5208
+@SmartSchool.Api_HostAddress = https://localhost:7144
 
 GET {{SmartSchool.Api_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+GET {{SmartSchool.Api_HostAddress}}/api/student/Students/List
+
+###
+
+@id=1
+GET {{SmartSchool.Api_HostAddress}}/api/student/Students/{{id}}
 
 ###
