@@ -3,11 +3,6 @@ using MediatR;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Common;
 using SmartSchool.Application.Features.Students.Responses;
-using SmartSchool.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace SmartSchool.Application.Features.Students.Queries
 {
     public class GetStudentsListQueryHandler : ResponseHandler, IRequestHandler<GetStudentsListQuery, Response<List<GetStudentsListResponse>>>
@@ -19,11 +14,13 @@ namespace SmartSchool.Application.Features.Students.Queries
             _studentRepository = studentRepository;
         }
         public async Task<Response<List<GetStudentsListResponse>>> Handle(GetStudentsListQuery request, CancellationToken cancellationToken)
-        { 
-            
-         var studentList =   await _studentRepository.GetStudentsListAsync(); 
+        {
+
+            var studentList = await _studentRepository.GetStudentsListAsync();
             return Success(studentList.Adapt<List<GetStudentsListResponse>>());
         }
-        
+
     }
+
 }
+

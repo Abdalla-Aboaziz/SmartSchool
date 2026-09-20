@@ -20,6 +20,12 @@ namespace SmartSchool.Api.Controllers
             var students = await _mediator.Send(new GetStudentsListQuery());
             return NewResult(students);
         }
+        [HttpGet("Student/PaginatedList")]
+        public async Task<IActionResult> GetStudentsPaginatedList([FromQuery] GetStudentPaginatedListQuery query)
+        {
+            var paginatedList = await _mediator.Send(query);
+            return Ok(paginatedList);
+        }
         [HttpGet("Student/{id:int}")]
         public async Task<IActionResult> GetStudentById([FromRoute] int id)
         {
