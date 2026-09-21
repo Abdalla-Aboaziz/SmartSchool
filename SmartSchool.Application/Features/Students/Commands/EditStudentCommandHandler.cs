@@ -1,17 +1,23 @@
-﻿using MediatR;
+using MediatR;
+using Microsoft.Extensions.Localization;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Common;
 using SmartSchool.Application.Features.Students.Commands;
+using SmartSchool.Application.Resources;
+using SmartSchool.Application.Resources.Common;
 
 public class EditStudentCommandHandler
     : ResponseHandler,
       IRequestHandler<EditStudentCommand, Response<string>>
 {
     private readonly IStudentRepository _studentRepository;
+    private readonly IStringLocalizer<SharedResources> _stringLocalizer;
 
-    public EditStudentCommandHandler(IStudentRepository studentRepository)
+    public EditStudentCommandHandler(IStudentRepository studentRepository, IStringLocalizer<SharedResources> stringLocalizer)
+        : base(stringLocalizer)
     {
         _studentRepository = studentRepository;
+        _stringLocalizer = stringLocalizer;
     }
 
     public async Task<Response<string>> Handle(
@@ -23,12 +29,11 @@ public class EditStudentCommandHandler
 
         if (existingStudent is null)
         {
-            return NotFound<string>("Student not found.");
+            return NotFound<string>(_stringLocalizer[SharedResourcesKeys.StudentNotFound]);
         }
 
         if (request.Name is not null)
         {
-
             existingStudent.UpdateName(request.Name);
         }
 
@@ -49,6 +54,6 @@ public class EditStudentCommandHandler
 
         await _studentRepository.UpdateAsync(existingStudent);
 
-        return Success<string>("Student updated successfully.");
+        return Success<string>(_stringLocalizer[SharedResourcesKeys.StudentUpdatedSuccessfully]);
     }
-}
+}

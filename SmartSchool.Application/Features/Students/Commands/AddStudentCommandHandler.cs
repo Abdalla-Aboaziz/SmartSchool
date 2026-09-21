@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.Extensions.Localization;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Common;
@@ -14,6 +14,7 @@ namespace SmartSchool.Application.Features.Students.Commands
         private readonly IStringLocalizer<SharedResources> _stringLocalizer;
 
         public AddStudentCommandHandler(IStudentRepository studentRepository, IStringLocalizer<SharedResources> stringLocalizer)
+            : base(stringLocalizer)
         {
             _studentRepository = studentRepository;
             _stringLocalizer = stringLocalizer;
@@ -36,7 +37,7 @@ namespace SmartSchool.Application.Features.Students.Commands
 
             await _studentRepository.AddAsync(student);
 
-            return Created("Student Added Successfully");
+            return Created<string>(_stringLocalizer[SharedResourcesKeys.StudentAddedSuccessfully]);
         }
     }
 }

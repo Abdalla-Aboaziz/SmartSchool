@@ -1,7 +1,9 @@
-﻿using MediatR;
+using MediatR;
+using Microsoft.Extensions.Localization;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Common;
 using SmartSchool.Application.Features.Students.Responses;
+using SmartSchool.Application.Resources.Common;
 using SmartSchool.Domain.Entities;
 using System.Linq.Expressions;
 
@@ -11,7 +13,8 @@ namespace SmartSchool.Application.Features.Students.Queries
     {
         private readonly IStudentRepository _studentRepository;
 
-        public GetStudentPaginatedListQueryHandler(IStudentRepository studentRepository)
+        public GetStudentPaginatedListQueryHandler(IStudentRepository studentRepository, IStringLocalizer<SharedResources> stringLocalizer)
+            : base(stringLocalizer)
         {
             _studentRepository = studentRepository;
         }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -122,5 +122,41 @@
   </data>
   <data name="StudentNameAlreadyExists" xml:space="preserve">
     <value>Student Name Already Exist</value>
+  </data>
+  <data name="StudentNotFound" xml:space="preserve">
+    <value>Student not found.</value>
+  </data>
+  <data name="StudentDeletedSuccessfully" xml:space="preserve">
+    <value>Student deleted successfully.</value>
+  </data>
+  <data name="FailedToDeleteStudent" xml:space="preserve">
+    <value>Failed to delete student.</value>
+  </data>
+  <data name="StudentUpdatedSuccessfully" xml:space="preserve">
+    <value>Student updated successfully.</value>
+  </data>
+  <data name="StudentAddedSuccessfully" xml:space="preserve">
+    <value>Student added successfully.</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Operation completed successfully.</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Not Found</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request</value>
+  </data>
+  <data name="UnAuthorized" xml:space="preserve">
+    <value>Unauthorized</value>
+  </data>
+  <data name="UnprocessableEntity" xml:space="preserve">
+    <value>Unprocessable Entity</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created Successfully</value>
   </data>
 </root>
