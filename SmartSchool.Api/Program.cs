@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 using SmartSchool.Application;
 using SmartSchool.Application.MiddleWares;
 using SmartSchool.Infrastructure;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,29 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructureDependencies(builder.Configuration)
                  .AddApplicationDependencies();
+
+#region Localization
+builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "";
+});
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    List<CultureInfo> supportedCultures = new List<CultureInfo>
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("de-DE"),
+        new CultureInfo("fr-FR"),
+        new CultureInfo("ar-EG")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("en-US");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+#endregion
 
 
 var app = builder.Build();
@@ -27,6 +53,11 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/openapi/v1.json", "My API v1");
     });
 }
+#region Localization Middleware
+var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(options.Value);
+#endregion
+
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
