@@ -13,3 +13,8 @@ GET {{SmartSchool.Api_HostAddress}}/api/student/Students/List
 GET {{SmartSchool.Api_HostAddress}}/api/student/Students/{{id}}
 
 ###
+
+DELETE {{SmartSchool.Api_HostAddress}}/api/Student/{{id}}
+
+
+###

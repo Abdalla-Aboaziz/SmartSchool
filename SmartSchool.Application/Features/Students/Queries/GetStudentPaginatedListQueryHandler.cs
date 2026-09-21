@@ -32,6 +32,10 @@ namespace SmartSchool.Application.Features.Students.Queries
 
             var paginatedList = await query.Select(expression).ToPaginatedListAsync(request.PageNumber, request.PageSize);
 
+            paginatedList.Meta = new
+            {
+                TotalCount = paginatedList.Data.Count(),
+            };
             return paginatedList;
         }
     }

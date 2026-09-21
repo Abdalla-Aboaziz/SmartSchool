@@ -1,44 +1,48 @@
-﻿using FluentValidation;
+using FluentValidation;
+using Microsoft.Extensions.Localization;
 using SmartSchool.Application.Features.Students.Commands;
+using SmartSchool.Application.Resources;
+using SmartSchool.Application.Resources.Common;
 
 namespace SmartSchool.Application.Features.Students.Validations
 {
-
-
     public class AddStudentValidation : AbstractValidator<AddStudentCommand>
     {
-        public AddStudentValidation()
+        public AddStudentValidation(IStringLocalizer<SharedResources> localizer)
         {
             // Name
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("{PropertyName} is required.")
+                .WithMessage(localizer[SharedResourcesKeys.Required])
                 .MaximumLength(200)
-                .WithMessage("{PropertyName} cannot exceed 200 characters.")
+                .WithMessage(localizer[SharedResourcesKeys.MaxLength])
                 .MinimumLength(2)
-                .WithMessage("{PropertyName} must be at least 2 characters.");
-
+                .WithMessage(localizer[SharedResourcesKeys.MinLength])
+                .WithName(localizer[SharedResourcesKeys.Name]);
 
             // Address
             RuleFor(x => x.Address)
                 .NotEmpty()
-                .WithMessage("{PropertyName} is required.")
+                .WithMessage(localizer[SharedResourcesKeys.Required])
                 .MaximumLength(200)
-                .WithMessage("{PropertyName} cannot exceed 200 characters.")
+                .WithMessage(localizer[SharedResourcesKeys.MaxLength])
                 .MinimumLength(3)
-                .WithMessage("{PropertyName} must be at least 3 characters.");
+                .WithMessage(localizer[SharedResourcesKeys.MinLength])
+                .WithName(localizer[SharedResourcesKeys.Address]);
 
             // Phone
             RuleFor(x => x.Phone)
                 .NotEmpty()
-                .WithMessage("{PropertyName} is required.")
+                .WithMessage(localizer[SharedResourcesKeys.Required])
                 .Matches(@"^01[0125][0-9]{8}$")
-                .WithMessage("{PropertyName} must be a valid Egyptian mobile number.");
+                .WithMessage(localizer[SharedResourcesKeys.InvalidEgyptianPhone])
+                .WithName(localizer[SharedResourcesKeys.Phone]);
 
             // Department
             RuleFor(x => x.DepartmentId)
                 .GreaterThan(0)
-                .WithMessage("{PropertyName} must be greater than 0.");
+                .WithMessage(localizer[SharedResourcesKeys.GreaterThanZero])
+                .WithName(localizer[SharedResourcesKeys.DepartmentId]);
         }
     }
 }

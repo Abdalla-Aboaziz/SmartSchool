@@ -20,7 +20,12 @@ namespace SmartSchool.Application.Features.Students.Queries
         public async Task<Response<List<GetStudentsListResponse>>> Handle(GetStudentsListQuery request, CancellationToken cancellationToken)
         {
             var studentList = await _studentRepository.GetStudentsListAsync();
-            return Success(studentList.Adapt<List<GetStudentsListResponse>>());
+            var response = Success(studentList.Adapt<List<GetStudentsListResponse>>());
+            response.Meta = new
+            {
+                TotalCount = studentList.Count
+            };
+            return response;
         }
 
     }
