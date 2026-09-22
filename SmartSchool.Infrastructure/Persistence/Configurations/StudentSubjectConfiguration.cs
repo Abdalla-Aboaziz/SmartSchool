@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SmartSchool.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SmartSchool.Infrastructure.Persistence.Configurations;
+
 public class StudentSubjectConfiguration
     : IEntityTypeConfiguration<StudentSubject>
 {
@@ -13,7 +11,7 @@ public class StudentSubjectConfiguration
     {
         builder.ToTable("StudentSubjects");
 
-        builder.HasKey(x => x.Id);
+        builder.HasKey(x => new { x.StudentId, x.SubjectId });
 
         builder.HasOne(x => x.Student)
             .WithMany(x => x.StudentSubjects)

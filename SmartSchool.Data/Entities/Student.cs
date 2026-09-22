@@ -19,6 +19,7 @@ public class Student
 
     public int? DepartmentId { get; private set; }
 
+
     public Department? Department { get; private set; }
 
     public IReadOnlyCollection<StudentSubject> StudentSubjects

@@ -5,6 +5,9 @@ public class Subject
 {
     private readonly List<StudentSubject> _studentsSubjects = [];
     private readonly List<DepartmentSubject> _departmentSubjects = [];
+    private readonly List<InstructorSubject> _instructorSubjects = [];
+
+
 
     // EF Core
     private Subject()
@@ -35,7 +38,8 @@ public class Subject
 
     public IReadOnlyCollection<DepartmentSubject> DepartmentSubjects
         => _departmentSubjects;
-
+    public IReadOnlyCollection<InstructorSubject> InstructorSubjects
+       => _instructorSubjects;
 
     // =========================
     // Domain Behavior

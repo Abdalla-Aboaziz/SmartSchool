@@ -26,7 +26,7 @@ public class DepartmentSubject
         SubjectId = subjectId;
     }
 
-    public int Id { get; private set; }
+    //  public int Id { get; private set; }
 
     public int DepartmentId { get; private set; }
 
