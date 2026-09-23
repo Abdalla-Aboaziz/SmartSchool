@@ -92,7 +92,7 @@ public class Instructor
     // Department
     // -------------------------
 
-    internal void AssignToDepartment(Department department)
+    public void AssignToDepartment(Department department)
     {
         ArgumentNullException.ThrowIfNull(department);
 
@@ -102,7 +102,7 @@ public class Instructor
             DepartmentId = department.Id;
     }
 
-    internal void RemoveFromDepartment()
+    public void RemoveFromDepartment()
     {
         Department = null;
         DepartmentId = null;

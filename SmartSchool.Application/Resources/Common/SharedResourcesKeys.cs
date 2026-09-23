@@ -2,31 +2,55 @@ namespace SmartSchool.Application.Resources
 {
     public static class SharedResourcesKeys
     {
-        public const string Required                  = "Required";
-        public const string StudentNameAlreadyExists  = "StudentNameAlreadyExists";
-        public const string StudentNotFound           = "StudentNotFound";
+        public const string Required = "Required";
+        public const string StudentNameAlreadyExists = "StudentNameAlreadyExists";
+        public const string DepartmentNameAlreadyExists = "DepartmentNameAlreadyExists";
+        public const string StudentNotFound = "StudentNotFound";
+        public const string InstructorNotFound = "InstructorNotFound";
+        public const string DepartmentNotFound = "DepartmentNotFound";
+        public const string SubjectNotFound = "SubjectNotFound";
         public const string StudentDeletedSuccessfully = "StudentDeletedSuccessfully";
-        public const string FailedToDeleteStudent     = "FailedToDeleteStudent";
+        public const string DepartmentDeletedSuccessfully = "DepartmentDeletedSuccessfully";
+        public const string FailedToDeleteStudent = "FailedToDeleteStudent";
+        public const string FailedToDeleteDepartment = "FailedToDeleteDepartment";
         public const string StudentUpdatedSuccessfully = "StudentUpdatedSuccessfully";
-        public const string StudentAddedSuccessfully  = "StudentAddedSuccessfully";
-        public const string Success                   = "Success";
-        public const string NotFound                  = "NotFound";
-        public const string BadRequest                = "BadRequest";
-        public const string UnAuthorized              = "UnAuthorized";
-        public const string UnprocessableEntity       = "UnprocessableEntity";
-        public const string DeletedSuccessfully       = "DeletedSuccessfully";
-        public const string Created                   = "Created";
-        
+        public const string DepartmentUpdatedSuccessfully = "DepartmentUpdatedSuccessfully";
+        public const string StudentAddedSuccessfully = "StudentAddedSuccessfully";
+        public const string DepartmentAddedSuccessfully = "DepartmentAddedSuccessfully";
+        public const string Success = "Success";
+        public const string NotFound = "NotFound";
+        public const string BadRequest = "BadRequest";
+        public const string UnAuthorized = "UnAuthorized";
+        public const string UnprocessableEntity = "UnprocessableEntity";
+        public const string DeletedSuccessfully = "DeletedSuccessfully";
+        public const string Created = "Created";
+
+        // Instructor Resources
+        public const string InstructorNameAlreadyExists = "InstructorNameAlreadyExists";
+        public const string InstructorAddedSuccessfully = "InstructorAddedSuccessfully";
+        public const string InstructorUpdatedSuccessfully = "InstructorUpdatedSuccessfully";
+        public const string InstructorDeletedSuccessfully = "InstructorDeletedSuccessfully";
+
+        // Subject Resources
+        public const string SubjectNameAlreadyExists = "SubjectNameAlreadyExists";
+        public const string SubjectAddedSuccessfully = "SubjectAddedSuccessfully";
+        public const string SubjectUpdatedSuccessfully = "SubjectUpdatedSuccessfully";
+        public const string SubjectDeletedSuccessfully = "SubjectDeletedSuccessfully";
+
         // Validation Messages
-        public const string MaxLength                 = "MaxLength";
-        public const string MinLength                 = "MinLength";
-        public const string InvalidEgyptianPhone      = "InvalidEgyptianPhone";
-        public const string GreaterThanZero           = "GreaterThanZero";
-        
+        public const string MaxLength = "MaxLength";
+        public const string MinLength = "MinLength";
+        public const string InvalidEgyptianPhone = "InvalidEgyptianPhone";
+        public const string GreaterThanZero = "GreaterThanZero";
+
         // Properties
-        public const string Name                      = "Name";
-        public const string Address                   = "Address";
-        public const string Phone                     = "Phone";
-        public const string DepartmentId              = "DepartmentId";
+        public const string Name = "Name";
+        public const string Address = "Address";
+        public const string Phone = "Phone";
+        public const string DepartmentId = "DepartmentId";
+        public const string Position = "Position";
+        public const string Salary = "Salary";
+        public const string SupervisorId = "SupervisorId";
+        public const string Period = "Period";
     }
 }
