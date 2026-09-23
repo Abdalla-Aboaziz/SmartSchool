@@ -22,4 +22,12 @@
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Departments\Commands\" />
+    <Folder Include="Features\Departments\Mapping\" />
+    <Folder Include="Features\Departments\Queries\" />
+    <Folder Include="Features\Departments\Responses\" />
+    <Folder Include="Features\Departments\Validation\" />
+  </ItemGroup>
+
 </Project>

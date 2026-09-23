@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SmartSchool.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SmartSchool.Infrastructure.Persistence.Configurations;
+
 public class SubjectConfiguration
     : IEntityTypeConfiguration<Subject>
 {
@@ -20,8 +18,7 @@ public class SubjectConfiguration
             .HasMaxLength(200);
 
         builder.Property(x => x.Period)
-            .IsRequired()
-            .HasColumnType("datetime2");
+            .IsRequired(false);
 
 
         // Student ↔ Subject

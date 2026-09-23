@@ -31,11 +31,11 @@ public class Instructor
 
     public int Id { get; private set; }
 
-    public string Name { get; private set; } = null!;
+    public string? Name { get; private set; }
 
-    public string Address { get; private set; } = null!;
+    public string? Address { get; private set; }
 
-    public string Position { get; private set; } = null!;
+    public string? Position { get; private set; }
 
     public decimal Salary { get; private set; }
 

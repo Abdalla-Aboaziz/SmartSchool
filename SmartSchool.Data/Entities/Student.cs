@@ -11,11 +11,11 @@ public class Student
 
     public int Id { get; private set; }
 
-    public string Name { get; private set; } = null!;
+    public string? Name { get; private set; }
 
-    public string Address { get; private set; } = null!;
+    public string? Address { get; private set; }
 
-    public string Phone { get; private set; } = null!;
+    public string? Phone { get; private set; }
 
     public int? DepartmentId { get; private set; }
 

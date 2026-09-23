@@ -11,7 +11,11 @@ public class StudentSubjectConfiguration
     {
         builder.ToTable("StudentSubjects");
 
-        builder.HasKey(x => new { x.StudentId, x.SubjectId });
+        builder.HasKey(x => new
+        {
+            x.StudentId,
+            x.SubjectId
+        });
 
         builder.HasOne(x => x.Student)
             .WithMany(x => x.StudentSubjects)
@@ -22,6 +26,11 @@ public class StudentSubjectConfiguration
             .WithMany(x => x.StudentsSubjects)
             .HasForeignKey(x => x.SubjectId)
             .OnDelete(DeleteBehavior.Cascade);
+
+
+        builder.Property(x => x.Grade)
+           .HasPrecision(5, 2)
+           .IsRequired(false);
 
 
         // Prevent duplicate Student ↔ Subject relationship

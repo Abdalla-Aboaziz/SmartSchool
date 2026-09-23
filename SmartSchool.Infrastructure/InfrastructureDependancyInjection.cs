@@ -22,6 +22,9 @@ namespace SmartSchool.Infrastructure
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IInstructorRepository, InstructorRepository>();
+            services.AddScoped<ISubjectRepsitory, SubjectRepsitory>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
             return services;
         }

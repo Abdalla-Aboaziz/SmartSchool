@@ -18,7 +18,7 @@ public class Department
 
     public int Id { get; private set; }
 
-    public string Name { get; private set; } = null!;
+    public string? Name { get; private set; }
 
     // Department Manager
     public int? ManagerId { get; private set; }

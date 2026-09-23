@@ -16,7 +16,7 @@ public class Subject
 
     public Subject(
         string name,
-        DateTime period)
+        int period)
     {
         SetName(name);
         SetPeriod(period);
@@ -24,9 +24,9 @@ public class Subject
 
     public int Id { get; private set; }
 
-    public string Name { get; private set; } = null!;
+    public string? Name { get; private set; }
 
-    public DateTime Period { get; private set; }
+    public int? Period { get; private set; }
 
 
     // =========================
@@ -50,7 +50,7 @@ public class Subject
         SetName(name);
     }
 
-    public void UpdatePeriod(DateTime period)
+    public void UpdatePeriod(int period)
     {
         SetPeriod(period);
     }
@@ -77,9 +77,9 @@ public class Subject
         Name = name;
     }
 
-    private void SetPeriod(DateTime period)
+    private void SetPeriod(int period)
     {
-        if (period == default)
+        if (period <= 0)
             throw new ArgumentException(
                 "Subject period is required.",
                 nameof(period));
