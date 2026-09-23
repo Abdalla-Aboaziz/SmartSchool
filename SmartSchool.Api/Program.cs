@@ -37,7 +37,17 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 #endregion
-
+builder.Services.AddCors(options =>
+          options.AddPolicy("AllowAll", builder =>  // or Use AddDefaultPolicy if you want to set it as the default policy
+          builder
+          .AllowAnyOrigin()
+          //.WithOrigins("http://localhost:3000") // Replace with your React app's URL
+          .AllowAnyMethod()
+          //.WithMethods("GET", "POST", "PUT", "DELETE") // Specify allowed HTTP methods
+          .AllowAnyHeader()
+          //.WithHeaders("Content-Type", "Authorization) // Specify allowed headers
+          )
+          );
 
 var app = builder.Build();
 
@@ -57,7 +67,7 @@ if (app.Environment.IsDevelopment())
 var options = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
 app.UseRequestLocalization(options.Value);
 #endregion
-
+app.UseCors("AllowAll");
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 

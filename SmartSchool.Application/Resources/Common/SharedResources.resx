@@ -183,4 +183,25 @@
   <data name="DepartmentId" xml:space="preserve">
     <value>Department</value>
   </data>
+  <data name="DepartmentNotFound" xml:space="preserve">
+    <value>DepartmentNotFound</value>
+  </data>
+  <data name="DepartmentNameAlreadyExists" xml:space="preserve">
+    <value>DepartmentNameAlreadyExists</value>
+  </data>
+  <data name="DepartmentAddedSuccessfully" xml:space="preserve">
+    <value>DepartmentAddedSuccessfully</value>
+  </data>
+  <data name="InstructorNotFound" xml:space="preserve">
+    <value>InstructorNotFound</value>
+  </data>
+  <data name="DepartmentUpdatedSuccessfully" xml:space="preserve">
+    <value>DepartmentUpdatedSuccessfully</value>
+  </data>
+  <data name="FailedToDeleteDepartment" xml:space="preserve">
+    <value>FailedToDeleteDepartment</value>
+  </data>
+  <data name="DepartmentDeletedSuccessfully" xml:space="preserve">
+    <value>DepartmentDeletedSuccessfully</value>
+  </data>
 </root>

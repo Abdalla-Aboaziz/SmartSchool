@@ -15,5 +15,16 @@ namespace SmartSchool.Infrastructure.Persistence.Repositories
         }
 
 
+        public async Task<List<Department>> GetDepartmentsListAsync()
+        => await _departments
+            .AsNoTracking().Include(s => s.Students)
+            .ToListAsync();
+
+        public IQueryable<Department> GetDepartmentsQueryable()
+        {
+            return _departments.AsNoTracking();
+        }
+
+
     }
 }

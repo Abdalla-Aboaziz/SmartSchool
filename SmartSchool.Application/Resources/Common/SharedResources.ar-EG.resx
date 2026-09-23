@@ -183,4 +183,25 @@
   <data name="DepartmentId" xml:space="preserve">
     <value>القسم</value>
   </data>
+  <data name="DepartmentNotFound" xml:space="preserve">
+    <value>هذا القسم غير موجود</value>
+  </data>
+  <data name="DepartmentNameAlreadyExists" xml:space="preserve">
+    <value>اسم القسم موجود بالفعل</value>
+  </data>
+  <data name="DepartmentAddedSuccessfully" xml:space="preserve">
+    <value>تم اضافة القسم بنجاح </value>
+  </data>
+  <data name="InstructorNotFound" xml:space="preserve">
+    <value>المعلم غير موجود </value>
+  </data>
+  <data name="DepartmentUpdatedSuccessfully" xml:space="preserve">
+    <value>تم تحديث القسم بنجاح</value>
+  </data>
+  <data name="FailedToDeleteDepartment" xml:space="preserve">
+    <value>فشل في حذف القسم </value>
+  </data>
+  <data name="DepartmentDeletedSuccessfully" xml:space="preserve">
+    <value>تم حذف القسم بنجاح </value>
+  </data>
 </root>

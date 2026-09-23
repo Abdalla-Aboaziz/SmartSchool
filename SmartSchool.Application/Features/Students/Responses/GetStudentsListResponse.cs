@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartSchool.Application.Features.Students.Responses
 {
-    public class GetStudentsListResponse
+    public class GetDepartmentsListResponse
     {
         public int StudentId { get; set; }
         public string Name { get; set; }

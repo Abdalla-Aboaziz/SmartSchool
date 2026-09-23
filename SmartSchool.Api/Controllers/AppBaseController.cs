@@ -1,18 +1,17 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartSchool.Application.Common;
 using System.Net;
 
 namespace SmartSchool.Api.Controllers
 {
-    [Route("api")]
+    [Route("api/v1")]
     [ApiController]
     public class AppBaseController : ControllerBase
     {
         public IMediator _mediatorInstance;
 
-        protected IMediator _mediator=> _mediatorInstance ??= HttpContext.RequestServices.GetService<IMediator>();
+        protected IMediator _mediator => _mediatorInstance ??= HttpContext.RequestServices.GetService<IMediator>();
 
 
         public ObjectResult NewResult<T>(Response<T> response)

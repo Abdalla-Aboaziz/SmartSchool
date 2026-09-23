@@ -6,9 +6,9 @@ using SmartSchool.Application.Resources.Common;
 
 namespace SmartSchool.Application.Features.Students.Validations
 {
-    public class AddStudentValidation : AbstractValidator<AddStudentCommand>
+    public class AddDepartmentValidation : AbstractValidator<AddStudentCommand>
     {
-        public AddStudentValidation(IStringLocalizer<SharedResources> localizer)
+        public AddDepartmentValidation(IStringLocalizer<SharedResources> localizer)
         {
             // Name
             RuleFor(x => x.Name)

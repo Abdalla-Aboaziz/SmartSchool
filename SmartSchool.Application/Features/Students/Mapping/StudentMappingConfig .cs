@@ -8,7 +8,7 @@ namespace SmartSchool.Application.Features.Students.Mapping
     {
         public void Register(TypeAdapterConfig config)
         {
-            config.NewConfig<Student, GetStudentsListResponse>()
+            config.NewConfig<Student, GetDepartmentsListResponse>()
                 .Map(dest => dest.StudentId, src => src.Id)
                 .Map(dest => dest.DepartmentName, src => src.Department!.Name);
 

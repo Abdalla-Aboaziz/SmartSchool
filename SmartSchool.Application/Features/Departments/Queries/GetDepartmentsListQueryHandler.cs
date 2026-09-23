@@ -3,27 +3,27 @@ using MediatR;
 using Microsoft.Extensions.Localization;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Common;
-using SmartSchool.Application.Features.Students.Responses;
+using SmartSchool.Application.Features.Departments.Responses;
 using SmartSchool.Application.Resources.Common;
 
-namespace SmartSchool.Application.Features.Students.Queries
+namespace SmartSchool.Application.Features.Departments.Queries
 {
     public class GetDepartmentsListQueryHandler : ResponseHandler, IRequestHandler<GetDepartmentsListQuery, Response<List<GetDepartmentsListResponse>>>
     {
-        private readonly IStudentRepository _studentRepository;
+        private readonly IDepartmentRepository _studentRepository;
 
-        public GetDepartmentsListQueryHandler(IStudentRepository studentRepository, IStringLocalizer<SharedResources> stringLocalizer)
+        public GetDepartmentsListQueryHandler(IDepartmentRepository studentRepository, IStringLocalizer<SharedResources> stringLocalizer)
             : base(stringLocalizer)
         {
             _studentRepository = studentRepository;
         }
         public async Task<Response<List<GetDepartmentsListResponse>>> Handle(GetDepartmentsListQuery request, CancellationToken cancellationToken)
         {
-            var studentList = await _studentRepository.GetStudentsListAsync();
-            var response = Success(studentList.Adapt<List<GetDepartmentsListResponse>>());
+            var departments = await _studentRepository.GetDepartmentsListAsync();
+            var response = Success(departments.Adapt<List<GetDepartmentsListResponse>>());
             response.Meta = new
             {
-                TotalCount = studentList.Count
+                TotalCount = departments.Count
             };
             return response;
         }

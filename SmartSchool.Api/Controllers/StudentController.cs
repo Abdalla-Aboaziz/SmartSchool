@@ -17,7 +17,7 @@ namespace SmartSchool.Api.Controllers
         [HttpGet("Student/List")]
         public async Task<IActionResult> GetStudents()
         {
-            var students = await _mediator.Send(new GetStudentsListQuery());
+            var students = await _mediator.Send(new GetDepartmentsListQuery());
             return NewResult(students);
         }
         [HttpGet("Student/PaginatedList")]
