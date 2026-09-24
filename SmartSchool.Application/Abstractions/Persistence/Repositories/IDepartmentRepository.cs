@@ -7,7 +7,7 @@ namespace SmartSchool.Application.Abstractions.Persistence.Repositories
 
         IQueryable<Department> GetDepartmentsQueryable();
         Task<List<Department>> GetDepartmentsListAsync();
-
+        Task<bool> IsDepartmentExist(int key);
     }
 
 }

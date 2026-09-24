@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SmartSchool.Application.Features.Departments.Commands;
 using SmartSchool.Application.Features.Departments.Queries;
 
 namespace SmartSchool.Api.Controllers
 {
 
+    [Route("api/departments")]
     public class DepartmentController : AppBaseController
     {
         public DepartmentController()
@@ -12,35 +13,35 @@ namespace SmartSchool.Api.Controllers
 
         }
 
-        [HttpGet("Department/id")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetDepartmentById([FromQuery] GetDepartmentByIdQuery query)
         {
             var department = await _mediator.Send(query);
             return NewResult(department);
         }
 
-        [HttpGet("Department/List")]
+        [HttpGet]
         public async Task<IActionResult> GetDepartments()
         {
             var departments = await _mediator.Send(new GetDepartmentsListQuery());
             return NewResult(departments);
         }
 
-        [HttpPost("Department/Create")]
+        [HttpPost]
         public async Task<IActionResult> AddDepartment([FromBody] AddDeparmentCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpPut("Department/AssignManager")]
+        [HttpPut("assign-manager")]
         public async Task<IActionResult> AssignDepartmentManager([FromBody] AssignDepartmentManagerCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpPut("Department/Edit")]
+        [HttpPut]
         public async Task<IActionResult> EditDepartment([FromBody] EditDepartmentCommand command)
         {
 
@@ -48,7 +49,7 @@ namespace SmartSchool.Api.Controllers
             return NewResult(result);
         }
 
-        [HttpDelete("Department/{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDepartment([FromRoute] int id)
         {
             var result = await _mediator.Send(new DeleteDepartmentCommand { Id = id });

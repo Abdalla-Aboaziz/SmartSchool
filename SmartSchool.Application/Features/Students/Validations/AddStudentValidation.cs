@@ -1,5 +1,6 @@
 using FluentValidation;
 using Microsoft.Extensions.Localization;
+using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Application.Features.Students.Commands;
 using SmartSchool.Application.Resources;
 using SmartSchool.Application.Resources.Common;
@@ -8,8 +9,11 @@ namespace SmartSchool.Application.Features.Students.Validations
 {
     public class AddStudentValidation : AbstractValidator<AddStudentCommand>
     {
-        public AddStudentValidation(IStringLocalizer<SharedResources> localizer)
+        private readonly IDepartmentRepository _departmentRepository;
+
+        public AddStudentValidation(IStringLocalizer<SharedResources> localizer, IDepartmentRepository departmentRepository)
         {
+            _departmentRepository = departmentRepository;
             // Name
             RuleFor(x => x.Name)
                 .NotEmpty()
@@ -42,7 +46,12 @@ namespace SmartSchool.Application.Features.Students.Validations
             RuleFor(x => x.DepartmentId)
                 .GreaterThan(0)
                 .WithMessage(localizer[SharedResourcesKeys.GreaterThanZero])
-                .WithName(localizer[SharedResourcesKeys.DepartmentId]);
+                .WithName(localizer[SharedResourcesKeys.DepartmentId])
+                .MustAsync(async (key, cancellationToken) => await _departmentRepository.IsDepartmentExist(key))
+                .WithMessage(localizer[SharedResourcesKeys.DepartmentNotFound])
+                ;
+
+
         }
     }
 }

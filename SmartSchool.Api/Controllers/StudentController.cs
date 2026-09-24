@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SmartSchool.Application.Features.Students.Commands;
 using SmartSchool.Application.Features.Students.Queries;
 
@@ -7,6 +7,7 @@ using SmartSchool.Application.Features.Students.Queries;
 namespace SmartSchool.Api.Controllers
 {
 
+    [Route("api/students")]
     public class StudentController : AppBaseController
     {
         public StudentController()
@@ -14,31 +15,31 @@ namespace SmartSchool.Api.Controllers
 
         }
 
-        [HttpGet("Student/List")]
+        [HttpGet]
         public async Task<IActionResult> GetStudents()
         {
             var students = await _mediator.Send(new GetStudentsListQuery());
             return NewResult(students);
         }
-        [HttpGet("Student/PaginatedList")]
+        [HttpGet("paginated")]
         public async Task<IActionResult> GetStudentsPaginatedList([FromQuery] GetStudentPaginatedListQuery query)
         {
             var paginatedList = await _mediator.Send(query);
             return Ok(paginatedList);
         }
-        [HttpGet("Student/{id:int}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetStudentById([FromRoute] int id)
         {
             var student = await _mediator.Send(new GetStudentByIdQuery(id));
             return NewResult(student);
         }
-        [HttpPost("Student/Create")]
+        [HttpPost]
         public async Task<IActionResult> AddStudent([FromBody] AddStudentCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
-        [HttpPut("Student/Edit")]
+        [HttpPut]
         public async Task<IActionResult> EditStudent([FromBody] EditStudentCommand command)
         {
 
@@ -46,7 +47,7 @@ namespace SmartSchool.Api.Controllers
             return NewResult(result);
         }
 
-        [HttpDelete("Student/{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteStudent([FromRoute] int id)
         {
             var result = await _mediator.Send(new DeleteStudentCommand { Id = id });

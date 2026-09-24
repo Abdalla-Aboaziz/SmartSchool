@@ -2,8 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Domain.Entities;
 using SmartSchool.Infrastructure.Persistence.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 
 namespace SmartSchool.Infrastructure.Persistence.Repositories
@@ -17,6 +15,12 @@ namespace SmartSchool.Infrastructure.Persistence.Repositories
         }
 
         public async Task<List<Subject>> GetListAsync()
-            => await _subjects.AsNoTracking().ToListAsync();
+            => await _subjects
+        .AsNoTracking()
+        .AsNoTracking()
+        .Include(s => s.StudentsSubjects)
+        .Include(s => s.DepartmentSubjects)
+        .Include(s => s.InstructorSubjects)
+        .ToListAsync();
     }
 }

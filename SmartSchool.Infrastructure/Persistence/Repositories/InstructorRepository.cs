@@ -2,8 +2,6 @@
 using SmartSchool.Application.Abstractions.Persistence.Repositories;
 using SmartSchool.Domain.Entities;
 using SmartSchool.Infrastructure.Persistence.Data;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace SmartSchool.Infrastructure.Persistence.Repositories
 {
@@ -16,6 +14,10 @@ namespace SmartSchool.Infrastructure.Persistence.Repositories
         }
 
         public async Task<List<Instructor>> GetListAsync()
-            => await _instructors.AsNoTracking().ToListAsync();
+            => await _instructors
+        .AsNoTracking()
+        .Include(i => i.Department)
+        .Include(i => i.Supervisor)
+        .ToListAsync();
     }
 }

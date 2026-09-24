@@ -5,6 +5,7 @@ using SmartSchool.Application.Features.Subject.Queries;
 namespace SmartSchool.Api.Controllers
 {
 
+    [Route("api/subjects")]
     public class SubjectController : AppBaseController
     {
         public SubjectController()
@@ -12,35 +13,35 @@ namespace SmartSchool.Api.Controllers
 
         }
 
-        [HttpGet("Subject/List")]
+        [HttpGet]
         public async Task<IActionResult> GetSubjects()
         {
             var subjects = await _mediator.Send(new GetSubjectsListQuery());
             return NewResult(subjects);
         }
 
-        [HttpGet("Subject/{id:int}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetSubjectById([FromRoute] int id)
         {
             var subject = await _mediator.Send(new GetSubjectByIdQuery(id));
             return NewResult(subject);
         }
 
-        [HttpPost("Subject/Create")]
+        [HttpPost]
         public async Task<IActionResult> AddSubject([FromBody] AddSubjectCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpPut("Subject/Edit")]
+        [HttpPut]
         public async Task<IActionResult> EditSubject([FromBody] EditSubjectCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpDelete("Subject/{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteSubject([FromRoute] int id)
         {
             var result = await _mediator.Send(new DeleteSubjectCommand { Id = id });

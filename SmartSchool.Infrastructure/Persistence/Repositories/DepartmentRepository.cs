@@ -25,6 +25,10 @@ namespace SmartSchool.Infrastructure.Persistence.Repositories
             return _departments.AsNoTracking();
         }
 
+        public async Task<bool> IsDepartmentExist(int key) => await _departments.AsNoTracking().AnyAsync(d => d.Id == key);
+
+
+
 
     }
 }

@@ -5,6 +5,7 @@ using SmartSchool.Application.Features.Instructor.Queries;
 namespace SmartSchool.Api.Controllers
 {
 
+    [Route("api/instructors")]
     public class InstructorController : AppBaseController
     {
         public InstructorController()
@@ -12,14 +13,14 @@ namespace SmartSchool.Api.Controllers
 
         }
 
-        [HttpGet("Instructor/List")]
+        [HttpGet]
         public async Task<IActionResult> GetInstructors()
         {
             var instructors = await _mediator.Send(new GetInstructorsListQuery());
             return NewResult(instructors);
         }
 
-        [HttpGet("Instructor/{id:int}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetInstructorById([FromRoute] int id)
         {
             {
@@ -28,21 +29,21 @@ namespace SmartSchool.Api.Controllers
             }
         }
 
-        [HttpPost("Instructor/Create")]
+        [HttpPost]
         public async Task<IActionResult> AddInstructor([FromBody] AddInstructorCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpPut("Instructor/Edit")]
+        [HttpPut]
         public async Task<IActionResult> EditInstructor([FromBody] EditInstructorCommand command)
         {
             var result = await _mediator.Send(command);
             return NewResult(result);
         }
 
-        [HttpDelete("Instructor/{id:int}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteInstructor([FromRoute] int id)
         {
             var result = await _mediator.Send(new DeleteInstructorCommand { Id = id });
