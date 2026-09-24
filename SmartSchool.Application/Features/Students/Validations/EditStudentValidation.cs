@@ -31,7 +31,7 @@ namespace SmartSchool.Application.Features.Students.Validations
                 .WithMessage(localizer[SharedResourcesKeys.Required])
                 .Matches(@"^(010|011|012|015)\d{8}$")
                 .WithMessage(localizer[SharedResourcesKeys.InvalidEgyptianPhone])
-                .WithName(localizer[SharedResourcesKeys.Phone])
+                .WithName(localizer[SharedResourcesKeys.InvalidEgyptianPhone])
                 .When(x => x.Phone is not null);
         }
     }

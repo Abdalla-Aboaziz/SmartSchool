@@ -4,6 +4,7 @@ using MapsterMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SmartSchool.Application.PipleLineBehaivors;
+
 using System.Reflection;
 
 namespace SmartSchool.Application
@@ -37,5 +38,6 @@ namespace SmartSchool.Application
 
             return services;
         }
+
     }
 }

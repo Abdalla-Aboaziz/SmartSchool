@@ -1,7 +1,7 @@
 ﻿
 namespace SmartSchool.Domain.Entities;
 
-public class Student
+public class Student : AuditableEntity
 {
     private readonly List<StudentSubject> _studentSubjects = [];
     // EF Core

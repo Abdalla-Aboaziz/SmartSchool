@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +27,24 @@ namespace SmartSchool.Infrastructure
             services.AddScoped<ISubjectRepsitory, SubjectRepsitory>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
+
+
+            // Identity 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                //  options.SignIn.RequireConfirmedEmail = true;
+                options.User.RequireUniqueEmail = true;
+
+                //DefaultValues
+                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                //options.Lockout.MaxFailedAccessAttempts = 5;
+                //options.Lockout.AllowedForNewUsers = true;
+            });
+
             return services;
         }
     }
+
+
 }
