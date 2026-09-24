@@ -40,7 +40,7 @@ namespace SmartSchool.Application.Features.Students.Validations
                 .WithMessage(localizer[SharedResourcesKeys.Required])
                 .Matches(@"^01[0125][0-9]{8}$")
                 .WithMessage(localizer[SharedResourcesKeys.InvalidEgyptianPhone])
-                .WithName(localizer[SharedResourcesKeys.Phone]);
+                .WithName(localizer[SharedResourcesKeys.InvalidEgyptianPhone]);
 
             // Department
             RuleFor(x => x.DepartmentId)

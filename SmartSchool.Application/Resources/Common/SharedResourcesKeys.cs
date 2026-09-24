@@ -39,14 +39,27 @@ namespace SmartSchool.Application.Resources
 
         // Validation Messages
         public const string MaxLength = "MaxLength";
+        public const string FailedToAddUser = "FailedToAddUser";
         public const string MinLength = "MinLength";
+        public const string EmailAlreadyExists = "EmailAlreadyExists";
+
         public const string InvalidEgyptianPhone = "InvalidEgyptianPhone";
+        public const string InvalidEmail = "InvalidEmail";
+        public const string PasswordMustContainUppercase = "PasswordMustContainUppercase";
+        public const string PasswordMustContainLowercase = "PasswordMustContainLowercase";
+        public const string PasswordMustContainNumber = "PasswordMustContainNumber";
+        public const string ConfirmPassword = "ConfirmPassword";
+        public const string PasswordMustContainSpecialCharacter = "PasswordMustContainSpecialCharacter";
         public const string GreaterThanZero = "GreaterThanZero";
 
         // Properties
         public const string Name = "Name";
+        public const string FirstName = "FirstName";
+        public const string LastName = "LastName";
+        public const string Email = "Email";
+        public const string Password = "Password";
         public const string Address = "Address";
-        public const string Phone = "Phone";
+        public const string PhoneNumber = "PhoneNumber";
         public const string DepartmentId = "DepartmentId";
         public const string Position = "Position";
         public const string Salary = "Salary";

@@ -1,6 +1,6 @@
 ﻿namespace SmartSchool.Domain.Entities;
 
-public class Department
+public class Department : AuditableEntity
 {
     private readonly List<Student> _students = [];
     private readonly List<DepartmentSubject> _departmentSubjects = [];

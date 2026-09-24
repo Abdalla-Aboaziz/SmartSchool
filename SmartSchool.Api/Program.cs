@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using SmartSchool.Application;
 using SmartSchool.Application.MiddleWares;
+using SmartSchool.Domain.Entities;
 using SmartSchool.Infrastructure;
+using SmartSchool.Infrastructure.Persistence.Data;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,8 +40,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 #endregion
-
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddIdentityCore<ApplicationUser>()
+ .AddEntityFrameworkStores<ApplicationDbContext>()
+ .AddDefaultTokenProviders();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
