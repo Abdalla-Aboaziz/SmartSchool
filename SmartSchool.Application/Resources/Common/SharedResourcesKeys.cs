@@ -40,6 +40,11 @@ namespace SmartSchool.Application.Resources
         // Validation Messages
         public const string MaxLength = "MaxLength";
         public const string FailedToAddUser = "FailedToAddUser";
+        public const string UserUpdatedSuccessfully = "UserUpdatedSuccessfully";
+        public const string UserDeletedSuccessfully = "UserDeletedSuccessfully";
+        public const string UserNotFound = "UserNotFound";
+        public const string FailedToUpdateUser = "FailedToUpdateUser";
+        public const string FailedToDeleteUser = "FailedToDeleteUser";
         public const string MinLength = "MinLength";
         public const string EmailAlreadyExists = "EmailAlreadyExists";
 

@@ -21,9 +21,11 @@
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="10.0.12" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.12" />
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="10.0.12" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.23.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Authentication\Auth\Dtos\" />
     <Folder Include="Features\Departments\Commands\" />
     <Folder Include="Features\Departments\Mapping\" />
     <Folder Include="Features\Departments\Queries\" />
