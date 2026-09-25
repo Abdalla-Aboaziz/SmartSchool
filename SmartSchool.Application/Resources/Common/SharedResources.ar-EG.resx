@@ -252,4 +252,19 @@
   <data name="LastName" xml:space="preserve">
     <value>الاسم الاخير </value>
   </data>
+  <data name="UserUpdatedSuccessfully" xml:space="preserve">
+    <value>تم تعديل المستخدم بنجاح</value>
+  </data>
+  <data name="UserDeletedSuccessfully" xml:space="preserve">
+    <value>تم حذف المستخدم بنجاح</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>المستخدم غير موجود</value>
+  </data>
+  <data name="FailedToUpdateUser" xml:space="preserve">
+    <value>فشل تعديل المستخدم</value>
+  </data>
+  <data name="FailedToDeleteUser" xml:space="preserve">
+    <value>فشل حذف المستخدم</value>
+  </data>
 </root>

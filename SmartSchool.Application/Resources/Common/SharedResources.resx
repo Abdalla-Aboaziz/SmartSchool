@@ -252,4 +252,19 @@
   <data name="LastName" xml:space="preserve">
     <value>LastName</value>
   </data>
+  <data name="UserUpdatedSuccessfully" xml:space="preserve">
+    <value>User updated successfully</value>
+  </data>
+  <data name="UserDeletedSuccessfully" xml:space="preserve">
+    <value>User deleted successfully</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="FailedToUpdateUser" xml:space="preserve">
+    <value>Failed to update user</value>
+  </data>
+  <data name="FailedToDeleteUser" xml:space="preserve">
+    <value>Failed to delete user</value>
+  </data>
 </root>

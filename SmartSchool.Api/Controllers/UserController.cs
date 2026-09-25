@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartSchool.Application.Features.Authentication.User.Command;
 using SmartSchool.Application.Features.Authentication.User.Queries;
 
 namespace SmartSchool.Api.Controllers
@@ -19,6 +20,21 @@ namespace SmartSchool.Api.Controllers
         {
             var result = await _mediator.Send(new GetUserByIdQuery { UserId = id });
             return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditUser([FromRoute] Guid id, [FromBody] EditUserCommand command)
+        {
+            command.UserId = id;
+            var result = await _mediator.Send(command);
+            return NewResult(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
+        {
+            var result = await _mediator.Send(new DeleteUserCommand { UserId = id });
+            return NewResult(result);
         }
     }
 }
